@@ -1,5 +1,51 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: sans-serif;
+  padding: 12.5px;
+}
+
+.App > div {
+  margin: 12.5px;
+  width: calc(25%)
+}
+
+.Winnie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ECEEEE;
+  background-color: #8E6E95;
+  height: 30px;
+}
+
+.George {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ECEEEE;
+  background-color: #e8741e;
+  height: 30px;
+}
+
+.Thomas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ECEEEE;
+  background-color: #344759;
+  height: 30px;
+}
+
+.Bob {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ECEEEE;
+  background-color: #39A59C;
+  height: 30px;
 }
 
 .App-logo {
@@ -20,3 +66,4 @@
 .App-link {
   color: #09d3ac;
 }
+
