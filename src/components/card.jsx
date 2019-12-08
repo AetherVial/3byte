@@ -1,44 +1,43 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
-const Card = ({col, msg, cards, setCards}) => {
-  const [column, setCol] = useState(parseInt(col));
+const Card = ({msg, col, dispatch, idx}) => {
   
-  const handleLeft = (e) => {
+  function handleLeft(e){
     e.preventDefault();
-    setCol(column - 1);
+    dispatch({type: 'left', col, idx})
   }
 
-  const handleRight = (e) => {
+  function handleRight(e){
     e.preventDefault();
-    setCol(column + 1);
+    dispatch({ type: 'right', col, idx})
   }
 
-  switch (column) {
-    case 1:
+  switch (col) {
+    case 0:
       return (
-        <div>
+        <div className="card">
           {msg}
           <div className="controls">
-            <button onClick = {e => this.handleRight(e)}>right</button>
+            <button onClick = {e => handleRight(e)}>right</button>
           </div>
         </div>
       ) 
-    case 4:
+    case 3:
       return (
-        <div>
+        <div className="card">
           {msg}
           <div className="controls">
-            <button onClick={e => this.handleLeft(e)}>left</button>
+            <button onClick={e => handleLeft(e)}>left</button>
           </div>
         </div>
       ) 
     default:
       return (
-      <div>
+        <div className="card">
         {msg}
         <div className="controls">
-            <button onClick={e => this.handleLeft(e)}>left</button>
-            <button onClick={e => this.handleRight(e)}>right</button>
+            <button onClick={e => handleLeft(e)}>left</button>
+            <button onClick={e => handleRight(e)}>right</button>
         </div>
       </div>
     )  

@@ -1,22 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Card from './card';
 
-const Column = ({col, name}) => {
-  const [cards, setCards] = useState(["card1", "card2"]);
+const Column = ({col, name, cards, dispatch}) => {
 
-  useEffect(() => {}, [cards.length]);
-
-  let entries = cards.map((i) => {
-    return <Card col={col} msg={i}/>
+  let entries = cards.map((msg, idx) => {
+    return <Card msg={msg} col={col} dispatch={dispatch} idx={idx}/>
   })
 
   function msg(e){
     e.stopPropagation()
-    const input = prompt("Add a tag in the input below")
-    setCards(cards.concat([input]))
+    const text = prompt("Add a tag in the input below")
+    dispatch({type: 'add', payload: {text, col}})
   }
   
-
   return (
     <div>
       <div className={name}>{name}</div>
